@@ -1,0 +1,58 @@
+<!--Name: Syahirah Shafiq Lee ID: 19065338
+   This file contains the two main component for admin, with the form as client side.
+   1. View booking requests with pickup time 2 hours from current time.
+   2. Assign taxi to booking request by using booking reference number.
+   The two functions will interact with the server side to retrieve the booking data accordingly to the functions invoked.
+-->
+<!DOCTYPE html>
+<html lang="en" XMLns="http://www.w3.org/1999/xHTML">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <script type="text/javascript" src="xhr.js"></script> <!--XHR object creation function for browser differences-->
+    <script type="text/javascript" src="admin.js"></script> <!--javascript file for the admin component -->
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--uses external CSS files for styling-->
+	<link rel="stylesheet" type="text/css" href="W3.css">               
+	<link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+	<link rel="stylesheet" type="text/css" href="form_style.css">
+</head>
+<body>
+<!--Header image-->
+<div class="w3-center">
+	<img src= "cabslogo.png" width="300" height="183" alt="CabsOnline" align="center"> 
+</div>
+<!--Navigation bar-->
+<ul class= "navbar">
+		<li><a href="booking.html">Booking</a></li>   
+		<li><a class="active" href="admin.html">Admin</a></li>
+</ul>
+<body>
+    <div class="container-fluid" align=center style="width:50%">
+    <div class="w3-card w3-mobile" style="width:80%;">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="container">
+                    <p></p>
+                </div>
+                <h2>Booking Requests</h2>
+                <label>Note: Viewing booking request is within 2 hours from current time</label>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" name="bsearch" placeholder="Please enter number only"> <br> <br>
+                        <input type ="button"  name="sbutton" onClick="display('admin_display.php', 'content', bsearch.value, 'date')" value="View Booking Request">
+                        <input type ="button" onClick="assign('admin_assign.php', 'content', bsearch.value)" value="Assign Cab">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div> <br><br>
+    <!--to display the content of request after server response-->
+    <div id="content">
+        <p></p>
+    </div>
+    </body>
+    </HTML>

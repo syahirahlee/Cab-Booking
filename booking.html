@@ -1,0 +1,94 @@
+<!--Name: Syahirah Shafiq Lee ID: 19065338
+This file contains the taxi booking form that enable taking relevant inputs from user and pass them to the server for 
+processing the taxi booking request (using XHR object).
+-->
+<!DOCTYPE html>
+<html lang="en" XMLns="http://www.w3.org/1999/xHTML">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Page</title>
+
+    <script type="text/javascript" src="xhr.js"></script> <!--XHR object creation function for browser differences-->
+	<script type="text/javascript" src="booking.js"></script>	  <!--javascript file for the booking component -->
+   <!--uses external CSS files for styling-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="W3.css">               
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+    <link rel="stylesheet" type="text/css" href="form_style.css">
+</head>
+<body>
+<!--Header image-->
+<div class="w3-center">
+	<img src= "cabslogo.png" width="300" height="183" alt="CabsOnline" align="center"> 
+</div>
+<!--Navigation bar-->
+<ul class= "navbar">
+    <li><a class="active" href="booking.html">Booking</a></li>   
+    <li><a href="admin.html">Admin</a></li>
+</ul>
+<!--form that accepts user input and invoke saveBooking function when user submits form. Appropriate messages will be displayed for invalid inputs-->
+<div class="container-fluid" align="center">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Book A Cab</h2>
+            <p class="w3-text-red" align="center">* Required fields</p> <br>
+            <form role="form">
+                <div class="w3-card w3-mobile" align="center" style="width:50%;">
+                <div class="form-group">
+                    <label for="cname">Customer Name<span class="w3-text-red">*</span></label>
+                    <input type="text" class="form-control" name="cname" id="cname" placeholder="Please enter your name" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number<span class="w3-text-red">*</span></label> <!--phone length must be between 10-12-->
+                    <input type="text" class="form-control" name="phone" minlength="10" maxlength="12" id="phone" placeholder="Please enter only number (Length: Must be be between 10-12)" required/>
+                </div>
+
+                <div class="form-group">
+                    <label> Pick-up Details
+                    </label>
+                    <br>Unit Number
+                    <input type="text" class="form-control" name="unumber " id="unumber" placeholder="Please enter only number">
+                    <br>Street Number<span class="w3-text-red">*</span>
+                    <input type="text" class="form-control" name="snumber" id="snumber" placeholder="Please enter only number" required>
+                    <br>Street Name<span class="w3-text-red">*</span>
+                    <input type="text" class="form-control"  name="stname" id="stname" placeholder="Please enter street name" required>
+                    <br>Suburb
+                    <input type="text" class="form-control"  name="sbname" id="sbname" placeholder="Please enter suburb name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Pick Up Date<span class="w3-text-red">*</span></label>
+                    <input type="date" class="form-control" name="date"id="date" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="time">Pick Up Time<span class="w3-text-red">*</span></label>
+                    <input type="time" class="form-control" name="time" id="time" required/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dsbname">Destination Suburb</label>
+                    <input type="text" class="form-control" name="dsbname" id="dsbname" placeholder="Please enter suburb name">
+                </div> <br>
+                <!--button to  call function with parameters -->
+                <button type="button" class="book-btn" onClick="saveBooking('booking_process.php', 'reference', cname.value, phone.value, unumber.value, snumber.value, stname.value, sbname.value, date.value,time.value, dsbname.value)">
+                    Submit
+                </button>
+                <!--button to reset/erase all data entered-->
+			    <input type="reset" value="Reset">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<!--reference: element that display the confirmation information message-->
+<!--to display the content of request after server response-->
+<div id="reference">
+    <p></p>
+</div>
+<br>
+</body>
+</html>
