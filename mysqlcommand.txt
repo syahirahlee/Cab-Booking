@@ -1,0 +1,17 @@
+/*  Name: Syahirah Shafiq Lee ID: 19065338
+    mysql commands to create "cab_booking" table to store booking information
+*/
+
+CREATE TABLE cab_booking
+                (
+                    bookingNum INT NOT NULL  AUTO_INCREMENT,
+                    custName VARCHAR(50) NOT NULL,
+                    custPhone INT(12) NOT NULL,
+                    pickUpAddress VARCHAR(300) NOT NULL,
+                    pickupDateTime DateTime NOT NULL,
+                    pickupSuburb VARCHAR(100),
+                    destination VARCHAR(100) NOT NULL,
+                    bookingDateTime DateTime NOT NULL,
+                    bookingStatus VARCHAR(20) NOT NULL,
+                    PRIMARY KEY (bookingNum) 
+                );
