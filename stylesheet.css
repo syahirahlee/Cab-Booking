@@ -1,0 +1,45 @@
+/* Name: Syahirah Shafiq Lee ID: 19065338
+  Stylesheet for the overall website
+*/
+
+/* NAVIGATION BAR
+set background color of navigation bar */
+.navbar {
+  background-color: black;
+  overflow: hidden;
+  /*added for center navbar*/
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*added for center navbar*/
+.navbar li {
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px;
+}
+
+/*set links style inside the navigation bar */
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* set colour change of links on hover */
+.navbar a:hover {
+  background-color: #faf0e6;
+  color: black;
+}
+
+/*set colour to the active/current link */
+.navbar a.active {
+  background-color: #faf0e6;
+  color: black;
+}
